@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{F8E5C35E-22F4-46BC-8F30-CE72C546735A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService", "services\AuthService\AuthService.csproj", "{8E8029B8-F7C5-4008-9A5F-70ABC685B90D}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "kafka", "kafka\kafka.shproj", "{AB89AE4D-3E4D-44FA-AB05-80ECC3C4CA0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consumer", "services\Consumer\Consumer.csproj", "{2EAC6FE2-78AC-4C17-8293-BE7D6F79B580}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Producer", "services\Producer\Producer.csproj", "{194FAE66-1E09-4085-A2AB-4BA4C75DAEE3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8E8029B8-F7C5-4008-9A5F-70ABC685B90D} = {F8E5C35E-22F4-46BC-8F30-CE72C546735A}
+		{2EAC6FE2-78AC-4C17-8293-BE7D6F79B580} = {F8E5C35E-22F4-46BC-8F30-CE72C546735A}
+		{194FAE66-1E09-4085-A2AB-4BA4C75DAEE3} = {F8E5C35E-22F4-46BC-8F30-CE72C546735A}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E8029B8-F7C5-4008-9A5F-70ABC685B90D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E8029B8-F7C5-4008-9A5F-70ABC685B90D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E8029B8-F7C5-4008-9A5F-70ABC685B90D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E8029B8-F7C5-4008-9A5F-70ABC685B90D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EAC6FE2-78AC-4C17-8293-BE7D6F79B580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EAC6FE2-78AC-4C17-8293-BE7D6F79B580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EAC6FE2-78AC-4C17-8293-BE7D6F79B580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EAC6FE2-78AC-4C17-8293-BE7D6F79B580}.Release|Any CPU.Build.0 = Release|Any CPU
+		{194FAE66-1E09-4085-A2AB-4BA4C75DAEE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{194FAE66-1E09-4085-A2AB-4BA4C75DAEE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{194FAE66-1E09-4085-A2AB-4BA4C75DAEE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{194FAE66-1E09-4085-A2AB-4BA4C75DAEE3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
