@@ -1,4 +1,9 @@
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Confluent.Kafka;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace Consumer;
 
@@ -29,8 +34,8 @@ public class Worker : BackgroundService
             {
                 while (!stoppingToken.IsCancellationRequested)
                 {
-                    var cr = consumer.Consume(stoppingToken);
-                    _logger.LogInformation($"Consumed: {cr.Value} at {cr.TopicPartitionOffset}");
+                    var consumeResult = consumer.Consume(stoppingToken);
+                    _logger.LogInformation($"Consumed: {consumeResult.Value} at {consumeResult.TopicPartitionOffset}");
                 }
             }
             catch (OperationCanceledException)
@@ -38,6 +43,6 @@ public class Worker : BackgroundService
                 _logger.LogInformation("Consumer shutting down...");
                 consumer.Close();
             }
-        });
+        }, stoppingToken);
     }
 }

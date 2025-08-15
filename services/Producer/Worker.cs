@@ -1,4 +1,9 @@
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Confluent.Kafka;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace Producer;
 
@@ -26,7 +31,7 @@ public class Worker : BackgroundService
             var value = $"Message {counter++}";
             var deliveryResult = await _producer.ProduceAsync("test-topic", new Message<Null, string> { Value = value });
             _logger.LogInformation($"Produced: {value} to {deliveryResult.TopicPartitionOffset}");
-            await Task.Delay(2000, stoppingToken);
+            await Task.Delay(5000, stoppingToken);
         }
     }
 

@@ -1,6 +1,20 @@
-﻿version: '3.7'
-
-services:
+﻿services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+#      - ./nginx/nginx.linux.conf:/etc/nginx/nginx.conf:ro  //OS depended
+      - ./nginx/nginx.windows.conf:/etc/nginx/nginx.conf:ro  //OS depended
+      - ./nginx/html:/usr/share/nginx/html:ro
+#    environment: 
+#      NGINX_ENV: linux
+    
+  #    depends_on:
+#      - authservice
+#      - chatservice
 
   zookeeper:
     image: confluentinc/cp-zookeeper:7.2.15
@@ -28,6 +42,8 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       # Убрали KAFKA_METRIC_REPORTERS, чтобы избежать ошибки
+#    depends_on:
+#      - nginx
 
   kafdrop:
     image: obsidiandynamics/kafdrop:latest
@@ -40,24 +56,6 @@ services:
     depends_on:
       - kafka
 
-#  producer:
-#    build:
-#      context: ..
-#      dockerfile: services/Producer/Dockerfile
-#    depends_on:
-#      - kafka
-#    environment:
-#      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-#
-#  consumer:
-#    build:
-#      context: ..
-#      dockerfile: services/Consumer/Dockerfile
-#    depends_on:
-#      - kafka
-#    environment:
-#      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-
 networks:
   default:
-    name: confluent
+    name: mms_network
